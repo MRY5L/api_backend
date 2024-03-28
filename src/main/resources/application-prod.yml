@@ -1,0 +1,41 @@
+# 线上配置文件
+server:
+  address: 0.0.0.0
+  port: 8901
+  servlet:
+    context-path: /api
+    # cookie 30 天过期
+    session:
+      cookie:
+        max-age: 2592000
+spring:
+  # 数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/api_db
+    username: root
+    password: 1828011yjl
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    # 生产环境关闭日志
+    log-impl: ''
+  global-config:
+    db-config:
+      logic-delete-field: isDelete # 全局逻辑删除的实体字段名
+      logic-delete-value: 1 # 逻辑已删除值（默认为 1）
+      logic-not-delete-value: 0 # 逻辑未删除值（默认为 0）
+# 接口文档配置
+knife4j:
+  basic:
+    enable: true
+    username: root
+    password: 123456
+dubbo:
+  application:
+    name: dubbo-api-provider
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://localhost:8848

@@ -1,0 +1,36 @@
+server:
+  port: 9001
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: api_route
+          uri: http://localhost:8701
+          predicates:
+            - Path=/api/**
+#        - id: path_route
+#          会匹配输入的路径/api/**,然后拼接到http://localhost:8701后,比如浏览器路径输入
+#         http://localhost:9001/api/name =>/api/name会拼接到http://localhost:8701后得出
+#         http://localhost:8701/api/name
+#          uri: http://localhost:8701
+#          predicates:
+#            - Path=/api/**
+#          filters:
+#            - AddRequestHeader=api, test
+#            - AddRequestParameter=name, big
+#            - name: CircuitBreaker
+#              args:
+#                name: myCircuitBreaker
+#                fallbackUri: forward:/fallback
+#        - id: api-fallback
+#          uri: hhttps://www.baidu.com
+#          predicates:
+#            - Path=/fallback
+dubbo:
+  application:
+    name: dubbo-api-consumer
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: nacos://localhost:8848

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mry5l.springbootinit.mapper.InterfaceInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.mry5l.apiclientsdk.model.entity.InterfaceInfo">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="restful" column="restful" jdbcType="VARCHAR"/>
+        <result property="requestParams" column="requestParams" jdbcType="VARCHAR"/>
+        <result property="requestHeader" column="requestHeader" jdbcType="VARCHAR"/>
+        <result property="responseHeader" column="responseHeader" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="method" column="method" jdbcType="VARCHAR"/>
+        <result property="userId" column="userId" jdbcType="BIGINT"/>
+        <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+        <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
+        <result property="host" column="host" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        ,`name`,`description`,requestParams,requestHeader,restful,
+        responseHeader,`status`,method,`host`,
+        userId,createTime,updateTime,
+        isDelete
+    </sql>
+    <select id="getApiUrl" resultType="com.mry5l.apiclientsdk.model.entity.InterfaceInfo">
+        select id, concat(host, restful), description, method
+        from interface_info
+        where concat(host, restful) = #{apiUrl}
+          AND method = #{method};
+    </select>
+</mapper>
