@@ -4,7 +4,7 @@
 
 **作为用户，您可以快速通过注册登录账户[网址](http://175.178.221.142/user/login)，获取接口调用权限，并根据自己的需求浏览并选择适合的接口。您可以在线进行接口调试，验证接口的功能和效果。**
 
-**作为开发者我们提供了[客户端SDK：MRY5l-API-SDK]()，通过[开发者依赖](https://central.sonatype.com/artifact/io.github.mry5l/mry5l-api-sdk)即可将轻松集成接口到您的项目中，实现更高效的开发和调用。**
+**作为开发者我们提供了[客户端SDK：MRY5l-API-SDK](https://github.com/MRY5L/api-sdk?tab=readme-ov-file)，通过[开发者依赖](https://central.sonatype.com/artifact/io.github.mry5l/mry5l-api-sdk)即可将轻松集成接口到您的项目中，实现更高效的开发和调用。**
 
 ## 项目选型 
 
