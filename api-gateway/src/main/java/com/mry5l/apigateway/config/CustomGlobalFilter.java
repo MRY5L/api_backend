@@ -69,9 +69,9 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         log.info("请求来源地址: {}", hostString);
         //3.访问控制 -> 黑白名单
         ServerHttpResponse response = exchange.getResponse();
-        if (!IP_WHITE_LIST.contains(hostString)) {
-            return HandelNoAuth(response, "IP不正确");
-        }
+//        if (!IP_WHITE_LIST.contains(hostString)) {
+//            return HandelNoAuth(response, "IP不正确");
+//        }
         //4. 用户鉴权(判断 ak,sk是否合法)
         HttpHeaders headers = request.getHeaders();
         String accessKey = headers.getFirst("accessKey");

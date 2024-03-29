@@ -10,7 +10,7 @@ public interface MyUrl {
     /**
      * 网关
      */
-    String GATEWAY_HOST = "http://localhost:9001";
+    String GATEWAY_HOST = "http://175.178.221.142:9001";
     /**
      * ip接口
      */
